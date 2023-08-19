@@ -1,50 +1,19 @@
 {
-    "$schema": "https://raw.githubusercontent.com/Azure/enterprise-azure-policy-as-code/main/Schemas/global-settings-schema.json",
-    "pacOwnerId": "11111111-2222-3333-4444-555555555555",
-    "pacEnvironments": [
-        {
-            "pacSelector": "epac-dev",
-            "cloud": "AzureCloud",
-            "tenantId": "77777777-8888-9999-1111-222222222222",
-            "deploymentRootScope": "/providers/Microsoft.Management/managementGroups/EPAC-Dev"
-        },
-        {
-            "pacSelector": "tenant",
-            "cloud": "AzureCloud",
-            "tenantId": "77777777-8888-9999-1111-222222222222",
-            "deploymentRootScope": "/providers/Microsoft.Management/managementGroups/Contoso-Root", // replaces rootScope
-            "inheritedDefinitionsScopes": [], // [optional] inherited definition scopes used but not managed by this repository, scopes must be visible from deploymentScope
-            "desiredState": { // [optional]
-                "strategy": "full", // default full
-                // full      = delete any unknown assignments and Policy/Set definitions in managed scope not containing metadata.pacOwnerId
-                // ownedOnly = delete only our own assignments as indicated by metadata.pacOwnerId field
-                "includeResourceGroups": false,
-                "excludedScopes": [
-                    // Management Groups
-                    // Subscriptions
-                    // Resource Groups
-                ],
-                "excludedPolicyDefinitions": [
-                    // wild cards allowed
-                ],
-                "excludedPolicySetDefinitions": [
-                    // wild cards allowed
-                ],
-                "excludedPolicyAssignments": [
-                    // wild cards allowed
-                ]
-            }
-        }
-    ],
+    "pacOwnerId": "4553da86-a170-45b9-b8d2-e9a22ae29536",
     "managedIdentityLocations": {
-        "*": "eastus2"
+        "*": "eastus"
     },
     "globalNotScopes": {
         "*": [
-            "/resourceGroupPatterns/excluded-rg*",
-        ],
-        "tenant": [
-            "/providers/Microsoft.Management/managementGroups/EPAC-Dev"
+            "/resourceGroupPatterns/excluded-rg*"
         ]
-    }
+    },
+    "pacEnvironments": [
+        {
+            "pacSelector": "quick-start",
+            "cloud": "AzureCloud",
+            "tenantId": "389b7e7c-4be2-4213-81b1-9e3a9afabd19",
+            "deploymentRootScope": "/providers/Microsoft.Management/managementGroups/Dami"
+        }
+    ]
 }
